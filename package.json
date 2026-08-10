@@ -1,0 +1,112 @@
+{
+  "name": "team-rental-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A local-first Windows desktop app for managing team spaces, seats, payments, renewals, currencies, backups, and reminders.",
+  "author": "菲比 / Feibi",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wx2529496539-arch/team-rental-desk.git"
+  },
+  "homepage": "https://github.com/wx2529496539-arch/team-rental-desk#readme",
+  "bugs": {
+    "url": "https://github.com/wx2529496539-arch/team-rental-desk/issues"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "main": "./out/main/index.js",
+  "type": "module",
+  "scripts": {
+    "bootstrap": "npm ci --ignore-scripts && node node_modules/electron/install.js",
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "test:platform": "vitest run src/main/platform src/main/domain",
+    "test:watch": "vitest",
+    "package:win": "npm run build && electron-builder --win nsis --x64"
+  },
+  "dependencies": {
+    "better-sqlite3": "13.0.2",
+    "date-fns": "4.4.0",
+    "lucide-react": "1.28.0",
+    "nodemailer": "9.0.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "7.6.13",
+    "@types/node": "24.10.1",
+    "@types/nodemailer": "7.0.4",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.2.0",
+    "electron": "43.2.0",
+    "electron-builder": "26.15.3",
+    "electron-vite": "5.0.0",
+    "jsdom": "28.0.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vitest": "4.1.10"
+  },
+  "build": {
+    "appId": "com.teamrental.manager.v2",
+    "productName": "Team 出租管理",
+    "copyright": "Copyright © 2026 菲比 / Feibi",
+    "npmRebuild": false,
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/better-sqlite3/**"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "resources"
+    },
+    "files": [
+      "out/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/icon.png",
+        "to": "icon.png"
+      },
+      {
+        "from": "resources/icon.ico",
+        "to": "TeamRentalDesk.ico"
+      },
+      {
+        "from": "LICENSE",
+        "to": "licenses/Apache-2.0.txt"
+      },
+      {
+        "from": "NOTICE",
+        "to": "licenses/NOTICE.txt"
+      },
+      {
+        "from": "THIRD_PARTY_NOTICES.md",
+        "to": "licenses/THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "from": "ASSET-LICENSE.md",
+        "to": "licenses/ASSET-LICENSE.md"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.ico",
+      "artifactName": "Team-Rental-Desk-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Team 出租管理",
+      "deleteAppDataOnUninstall": false,
+      "perMachine": false
+    }
+  }
+}

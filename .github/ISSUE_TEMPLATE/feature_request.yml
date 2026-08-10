@@ -1,0 +1,44 @@
+name: Feature request / 功能建议
+description: Suggest a focused improvement / 提出一个清晰的改进建议
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the user problem first. Do not include real customer or account data.
+
+        请先说明用户遇到的问题，不要附带真实客户或账号资料。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem / 用户问题
+      description: What is difficult today? / 现在什么地方不好用？
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior / 希望如何改进
+    validations:
+      required: true
+
+  - type: textarea
+    id: data
+    attributes:
+      label: Data and compatibility impact / 数据与兼容影响
+      description: Could this affect migration, payments, backups, or historical records? / 是否影响迁移、收款、备份或历史记录？
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform / 平台
+      options:
+        - Windows 10/11 x64 (official)
+        - macOS community port
+        - Linux community port
+        - Documentation only / 仅文档
+    validations:
+      required: true

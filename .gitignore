@@ -1,0 +1,42 @@
+# Dependencies and generated output
+/node_modules/
+/out/
+/dist/
+/release*/
+/coverage/
+/.cache/
+*.tsbuildinfo
+
+# Local runtime state
+/runtime/
+/data/
+/backups/
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+*.sqlite
+*.sqlite3
+settings.json
+window-state.json
+*.lnk
+
+# Logs, environment, and credentials
+*.log
+.env
+.env.*
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Private release preparation
+/private-*/
+/Team-Rental-Desk-GitHub发布预览/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
