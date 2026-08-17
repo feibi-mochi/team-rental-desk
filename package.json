@@ -29,7 +29,7 @@
     "package:win": "npm run build && electron-builder --win nsis --x64"
   },
   "dependencies": {
-    "better-sqlite3": "13.0.2",
+    "better-sqlite3": "13.0.3",
     "date-fns": "4.4.0",
     "lucide-react": "1.28.0",
     "nodemailer": "9.0.4",
